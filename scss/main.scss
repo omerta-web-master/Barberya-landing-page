@@ -1,0 +1,580 @@
+@use 'abstract/index' as *;
+
+body {
+    background-color: $primary-500;
+    color: $text-light;
+    font-family: $primary-font;
+}
+
+// Header
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: all .3s ease;
+    &.scrolled {
+        background-color: white;
+        color: $text-dark;
+        padding: .5rem 0px;
+        .top_header {
+            height: 0px;
+            padding: 0;
+        }
+
+        .main_nav {
+            @include md {
+                background-color: white !important;
+            }
+
+            a {
+                color: $text-dark !important;
+            }
+
+            .btn {
+                color: $text-light !important;
+            }
+        }
+
+        #menu_toggler {
+            color: $text-dark !important;
+        }
+    }
+
+    .top_header {
+        overflow: hidden;
+        transition: all .5s ease;
+        max-height: 50px;
+        @include md {
+            height: 0px;
+            padding: 0;
+        }
+
+        .contact {
+            i {
+                color: $secondary-100
+            }
+        }
+    }
+
+    .main_header {
+        transition: all .3s ease;
+        position: relative;
+        @include md {
+            padding: .5rem 0px;
+        }
+
+        .logo {
+            z-index: 2;
+        }
+
+        .main_nav {
+            transition: all .3s ease;
+            @include md {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: $primary-700;
+                flex-direction: column;
+                height: 0px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+
+                &.show {
+                    height: 450px;
+                }
+            }
+
+            ul {
+                @include md {
+                    flex-direction: column;
+                }
+
+                a {
+                    @include md {
+                        font-size: var(--h3);
+                        padding: 1rem 0px;
+                    }
+                    color: $text-light;
+                    padding: .3rem .6rem;
+                    font-size: var(--h4);
+                    transition: all .3s ease;
+                    display: inline-block;
+                    &:hover {
+                        color: $secondary-400;
+                    }
+                }
+            }
+
+            .btn {
+                background-color: $secondary-500;
+                color: $text-light;
+                
+            }
+        }
+        
+
+        #menu_toggler {
+            background-color: transparent;
+            color: white;
+            outline: none;
+            border: none;
+            transition: all .3s ease;
+            display: none;
+            z-index: 2;
+            @include md {
+                display: block;
+            }
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// Social icons
+.social {
+    display: flex;
+
+    a {
+        transition: all .3s ease;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    i {
+        color: $text-light;
+        padding: .3rem .7rem;
+        border-left: 1px solid white;
+    }
+
+    i:last-child {
+        border-right: 1px solid white;
+    }
+}
+
+// Hero
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background: url('../images/img2.jpg') no-repeat center center/cover;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(90deg,$primary-500, transparent);
+        z-index: 1;
+    }
+
+    .hero_content {
+        z-index: 2;
+        transform: translateY(-100px);
+
+        h1 {
+            letter-spacing: .6rem;
+        }
+
+        .btn {
+            color: $text-light;
+            background-color: $secondary-500;
+        }
+    }
+
+    .haircuts {
+        position: absolute;
+        width: 90%;
+        max-width: 800px;
+        left: 50%;
+        bottom: 100px;
+        transform: translate(-50%,0px);
+        z-index:3;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+
+        .haircut {
+            flex: 1;
+        }
+    }
+}
+
+// Hero shape divider
+.custom-shape-divider-bottom-1637051422 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+.custom-shape-divider-bottom-1637051422 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 332px;
+    transform: rotateY(180deg);
+
+    
+}
+
+.custom-shape-divider-bottom-1637051422 .shape-fill {
+    fill: $primary-500;
+}
+
+//Section title
+.section_title {
+    margin-bottom: 3rem;
+    h2 {
+        text-align: center;
+        padding: .5rem 0px;
+        font-weight: 300;
+    }
+
+    .line {
+        width: 150px;
+        height: 2px;
+        background-color: $secondary-500;
+        margin: auto;
+    }
+}
+
+// About
+.about {
+
+    .flex {
+        @include md {
+            flex-direction: column;
+        }
+    }
+
+    .team {
+        
+        .team_cards {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+
+            @include sm {
+                flex-direction: column;
+            }
+        }
+        .team_card {
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 1px 3px 5px rgba(180, 143, 20, 0.8);
+            
+            @include sm {
+                margin: auto;
+            }
+            
+        }
+    }
+}
+
+// Services
+.services {
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+
+        @include xl {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include sm {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            padding: 1.5rem;
+            border: 1px solid rgba(236, 157, 52, 0.3);
+            text-align: center;
+            width: 100%;
+            background-color: $primary-800;
+            margin: auto;
+
+            i {
+                color: $secondary-400;
+                font-size: 4rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: var(--h2);
+                font-weight: 300;
+            }
+
+            .btn {
+                color: $text-light;
+                background-color: $secondary-500;
+            }
+        }
+    }
+}
+
+
+// Gallery
+.gallery {
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: .5rem;
+
+        @include md {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include sm {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .gallery_item {
+        overflow: hidden;
+        img {
+            transition: all .3s ease;
+        }
+    }
+    .gallery_item:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+// Modal gallery
+.modal_gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    &.show {
+        display: flex;
+    }
+
+    .inner_container {
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 3rem;
+        transition: all .3s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    #next_btn {
+        position: absolute;
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include md {
+            top:auto;
+            right: 30%;
+            bottom: -100px;
+        }
+    }
+
+    #prev_btn {
+        position: absolute;
+        left: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include md {
+            top:auto;
+            left: 30%;
+            bottom: -100px;
+        }
+    }
+
+    #close_gallery {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+    }
+}
+
+// Contact-form + Appointment form
+.contact, .appointment {
+    
+    .contact_form, .appointment_form {
+
+        .grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+    
+            @include sm {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: .5rem 1rem;
+            border: none;
+            outline: none;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+            transition: all .2s ease;
+            background-color: $primary-100;
+    
+            &:focus {
+                border: 1px solid $secondary-500;
+            }
+        }
+    
+        div:last-child {
+            grid-column: 1/3;
+            @include sm {
+                grid-column: 1/2;
+            }
+        }
+    
+        label {
+            font-weight: 300;
+            margin-bottom: .3rem;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+            margin-top: 1rem;
+            background-color: $secondary-500;
+            color: $text-light;
+        }
+       
+    }
+
+    .flex {
+        @include md {
+            flex-direction: column;
+        }
+    }
+
+    .location_info {
+        li {
+            margin-bottom: .8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        i {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: $secondary-500;
+        }
+    }
+}
+
+
+// Testimonials
+.testimonials {
+    background-color: $primary-600;
+    
+
+    .t_outer {
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .t_inner {
+        display: flex;
+        transition: all .3s ease;
+    }
+
+    .t_slide {
+        width: 100%;
+        flex-shrink: 0;
+        text-align: center;
+        padding: 1rem;
+
+        .img_container {
+            width: 100px;
+            height: 100px;
+            margin:auto;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid $primary-500;
+
+            img {
+                transform: scale(1.5)
+            }
+        }
+
+        i {
+            color: $secondary-500;
+            font-size: 1.5rem;
+        }
+    }
+
+    .t_buttons {
+        text-align: center;
+        margin-top: 2rem;
+
+        .t_button {
+            width: 30px;
+            height: 30px;
+            background-color: $primary-100;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            margin-left: .5rem;
+
+            &.active {
+                background-color: $secondary-500; 
+            }
+        }
+    }
+}
+
+
+// Appointment form
+.appointment {
+
+    .appointment_form {
+
+    }
+}
+
+// Footer
+.footer {
+    background-color: $primary-900;
+}
